@@ -23,13 +23,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Install SonarScanner
-        run: |
-          sudo apt-get update
-          sudo apt-get install unzip
-          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-5.0.1.3006-linux.zip
-          unzip sonar-scanner-5.0.1.3006-linux.zip
-          mv sonar-scanner-5.0.1.3006-linux sonar-scanner
-          echo "$PWD/sonar-scanner/bin" >> $GITHUB_PATH
+        uses: SonarSource/sonarcloud-github-action@v2
 
       - name: Compile project
         run: javac $(find . -name "*.java")
