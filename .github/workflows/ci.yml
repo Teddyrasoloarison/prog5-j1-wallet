@@ -8,23 +8,20 @@ on:
 
 jobs:
   sonar:
-    name: Run SonarQube
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      - name: Set up Java 17
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
 
       - name: List Java files
-        run: |
-          git ls-files '*.java' || true
+        run: git ls-files '*.java' || true
 
       - name: Run SonarScanner
         uses: SonarSource/sonarcloud-github-action@v2
