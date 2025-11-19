@@ -1,4 +1,4 @@
-package wallet;
+package com.wallet;
 
 import java.util.ArrayList;
 import java.util.List;
